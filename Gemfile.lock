@@ -241,7 +241,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
-  tailwindcss-rails (~> 2.0, >= 2.0.10)
+  tailwindcss-rails
   turbo-rails
   tzinfo-data
   web-console
@@ -251,4 +251,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.7
+   2.3.18
