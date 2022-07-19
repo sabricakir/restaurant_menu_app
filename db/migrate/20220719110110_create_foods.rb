@@ -4,7 +4,7 @@ class CreateFoods < ActiveRecord::Migration[7.0]
       t.string :name
       t.float :price
       t.string :contents
-      t.belongs_to :restaurant
+      t.references :restaurant, null: false, foreign_key: true
       t.timestamps
     end
   end

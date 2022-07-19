@@ -6,6 +6,11 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  #GET /users/id/restaurants.json
+  def restaurants
+      @myrestaurants = Restaurant.find { |e|  e.user = current_user}
+  end
+
   # GET /restaurants/1 or /restaurants/1.json
   def show
   end
@@ -22,6 +27,8 @@ class RestaurantsController < ApplicationController
   # POST /restaurants or /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
+
 
     respond_to do |format|
       if @restaurant.save

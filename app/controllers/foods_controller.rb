@@ -12,8 +12,9 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
+    @restaurant = Restaurant.find(params[:id])
     @food = Food.new
-  end
+   end
 
   # GET /foods/1/edit
   def edit
@@ -21,17 +22,9 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
-
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to food_url(@food), notice: "Food was successfully created." }
-        format.json { render :show, status: :created, location: @food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
-    end
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = @restaurant.foods.create(food_params)
+    redirect_to restaurant_path(@restaurant)
   end
 
   # PATCH/PUT /foods/1 or /foods/1.json
