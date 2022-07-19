@@ -6,4 +6,5 @@ class Food < ApplicationRecord
   validates :contents, length: {in: 2..80 , too_long: "İçerik en fazla %{count} karakterden oluşabilir", too_short: "İçerik alanı en az 2 karakterden oluşmalıdır" }
   validates :price, presence: {message:"Fiyat alanı zorunludur"}
 
+
 end

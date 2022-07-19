@@ -2,6 +2,11 @@
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= restaurant.name %>
+    <%= restaurant.user.name%>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= restaurant.user.name%>
   </p>
 
   <% if action_name != "show" %>
