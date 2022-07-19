@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :restaurants
 
   validates :name, presence: {message:"İsim alanı zorunludur"}, length: {in: 2..20 , too_long: "İsim en fazla %{count} karakterden oluşabilir", too_short: "İsim alanı en az 2 karakterden oluşmalıdır" }
   validates :surname, presence:{message:"Soyisim alanı zorunludur"}, length: {in: 2..25 , too_long: "Soyisim en fazla %{count} karakterden oluşabilir", too_short: "Soyisim alanı en az 2 karakterden oluşmalıdır" }
