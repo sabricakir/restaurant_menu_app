@@ -14,6 +14,12 @@ class FoodsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:id])
     @food = Food.new
+    @category1 = Category.new("Sıcak içecekler")
+    @category2 = Category.new("Soğuk içecekler")
+    @category3 = Category.new("Çaylar")
+    @category4 = Category.new("Tatlılar")
+    @categories = [@category1, @category2, @category3, @category4 ]
+
    end
 
   # GET /foods/1/edit
