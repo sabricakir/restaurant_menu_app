@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :restaurants
   devise_for :users
   resources :users do
+    get '/:id', to: 'users#show'
     get '/restaurants', to: 'restaurants#restaurants'
     get '/restaurants/:id', to: 'restaurants#show'
     get '/restaurants/:id/foods/new', to: 'foods#new'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
       resources :foods
       end
     end
-    
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
