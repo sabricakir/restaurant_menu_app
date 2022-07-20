@@ -1,8 +1,11 @@
 <div id="<%= dom_id restaurant %>">
   <p class="my-5">
+    <% if restaurant.restaurant_image.attached?%>
+      <%= image_tag restaurant.restaurant_image %>
+    <% end%>
+
     <strong class="block font-medium mb-1">Name:</strong>
     <%= restaurant.name %>
-    <%= restaurant.user.name%>
   </p>
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>

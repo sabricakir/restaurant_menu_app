@@ -6,13 +6,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  #GET /users/id/restaurants.json
-  def restaurants
-      @myrestaurants = Restaurant.find { |e|  e.user = current_user}
-  end
-
   # GET /restaurants/1 or /restaurants/1.json
   def show
+    @user = current_user
+
   end
 
   # GET /restaurants/new
@@ -72,6 +69,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name)
+      params.require(:restaurant).permit(:name, :restaurant_image, :address)
     end
 end
