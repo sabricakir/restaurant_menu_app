@@ -25,18 +25,9 @@
 
     </div>
 
+    <%    @foods_category1 = @restaurant.foods.find_by(category_id: 1) %>
     <h2 class="text-center text-3xl font-semibold mb-4 mt-16">Foods</h2>
-     <% @restaurant.foods.each do |food| %>
-      <p>
-        <strong>Name:</strong>
-        <%= food.name %>
-      </p>
-
-      <p>
-        <strong>Price:</strong>
-        <%= food.price %>
-      </p>
-    <% end %>
+     <%= render @restaurant.foods %>>
     
 </div>
 

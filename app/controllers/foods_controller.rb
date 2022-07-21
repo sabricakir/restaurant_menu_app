@@ -14,11 +14,6 @@ class FoodsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:id])
     @food = Food.new
-    @category1 = Category.new("Sıcak içecekler")
-    @category2 = Category.new("Soğuk içecekler")
-    @category3 = Category.new("Çaylar")
-    @category4 = Category.new("Tatlılar")
-    @categories = [@category1, @category2, @category3, @category4 ]
 
    end
 
@@ -30,6 +25,8 @@ class FoodsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @food = @restaurant.foods.create(food_params)
+
+
     redirect_to restaurant_path(@restaurant)
   end
 
@@ -64,6 +61,6 @@ class FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :price, :contents)
+      params.require(:food).permit(:name, :price, :contents,:category_id)
     end
 end
