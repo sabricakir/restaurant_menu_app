@@ -1,26 +1,36 @@
 
+<div class="container">
+
 <!-- Profil Tasarımı   -->
 
+  <div class="bg-white rounded-lg dark:bg-gray-800 flex justify-center items-center mt-16">
 
-<span>
-  <%= @user.name %>
-  <%= @user.surname %>
-</span>
-
-
-
-<!-- Restaurant kartları-->
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">My Restaurants</h1>
-    <%= link_to 'New restaurant', new_restaurant_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      <div class="flex flex-col items-center pb-10">
+          <%= image_tag 'https://avatars.githubusercontent.com/u/84380549?v=4', class:"mb-3 w-24 h-24 rounded-full shadow-lg"%>
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @user.name+" "+@user.surname %></h5>
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @user.phone %></h5>
+          <div class="flex mt-4 space-x-3 lg:mt-6">
+              <a href="#" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-blue-700 dark:focus:ring-yellow-900">Edit Profile</a>
+          </div>
+      </div>
   </div>
 
-  <div id="restaurants" class="min-w-full">
-    <%= render @user.restaurants %>
+
+
+  <!-- Restaurant kartları-->
+  <div class="w-full">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">My Restaurants</h1>
+      <%= link_to 'New restaurant', new_restaurant_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+
+    <div id="restaurants" class="min-w-full">
+      <%= render @user.restaurants %>
+    </div>
   </div>
+
 </div>
