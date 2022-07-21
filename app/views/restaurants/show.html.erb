@@ -1,31 +1,47 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
+<div class="container">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @restaurant %>
+    <div class="mx-auto mt-0 md:mt-16 bg-white dark:bg-gray-800 flex flex-col justify-between items-center">
 
 
-  <h2>Foods</h2>
-  <% @restaurant.foods.each do |food| %>
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
+      <%= image_tag @restaurant.restaurant_image, class:"w-full h-auto max-h-52 md:max-h-96 md:h-96 object-cover rounded-lg shadow-lg"%>
 
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-<% end %>
 
-  <% if  @restaurant.user == @user %>
-    <%= link_to 'Edit this restaurant', edit_restaurant_path(@restaurant), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this restaurant', restaurant_path(@restaurant), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <div class="flex flex-col justify-center items-center ml-8 lg:ml-0 mt-8">
+        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold"> Restaurant Name: </span><%= @restaurant.name %></h5>
+        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold">  Restaurant Address: </span> <%= @restaurant.address %></h5>
+      </div>
+
+
+      <div class="flex justify-between items-center w-fit mt-4 space-x-4">
+        <% if  @restaurant.user == @user %>
+          <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: "text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900" %>
+          <%= link_to 'Add Foods', restaurant_path(@restaurant), class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800" %>
+          <%= link_to 'Back to Restaurants', user_path(current_user), class: "text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" %>
+        <% end %>
+      </div>
+
     </div>
-    <%= link_to 'Back to restaurants', restaurants_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <% end %>
-  </div>
+
+    <h2 class="text-center text-3xl font-semibold mb-4 mt-16">Foods</h2>
+     <% @restaurant.foods.each do |food| %>
+      <p>
+        <strong>Name:</strong>
+        <%= food.name %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= food.price %>
+      </p>
+    <% end %>
+    
 </div>
+
+
+
+
+
+
