@@ -15,8 +15,9 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
-    <%= food.category_id %>
+    <!-- Encapculate This-->
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= Category.find_by(id: food.category_id).name %>
   </p>
 
   <% if action_name != "show" %>

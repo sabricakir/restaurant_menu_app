@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[ show edit update destroy ]
+  before_action :set_categories, only: %i[new edit]
 
   # GET /foods or /foods.json
   def index
@@ -8,6 +9,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1 or /foods/1.json
   def show
+    
   end
 
   # GET /foods/new
@@ -59,8 +61,12 @@ class FoodsController < ApplicationController
       @food = Food.find(params[:id])
     end
 
+    def set_categories
+      @categories = Category.all
+    end
+
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :price, :contents,:category_id)
+      params.require(:food).permit(:name, :price, :contents, :category_id)
     end
 end
