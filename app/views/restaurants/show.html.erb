@@ -25,20 +25,6 @@
 
     </div>
 
-    <h2 class="text-center text-3xl font-semibold mb-4 mt-16">Foods</h2>
-    <% @restaurant.foods.each do |food|%>
-      <% @categories.each do |category|%>
-        <% if food.category_id == category.id%>
-          <span>
-            <%=category.name%>
-          </span>
-          <%= render @restaurant.foods.find_by(category_id: category.id)%>
-        <%end%>
-      
-      <%end%>
-    <%end%>    
-</div>
-
 
 
 
