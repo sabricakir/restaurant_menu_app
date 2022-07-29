@@ -25,28 +25,6 @@
 
     </div>
 
-    <h2 class="text-center text-3xl font-semibold mb-4 mt-16">Foods</h2>
-    <!-- Encapculate This-->
-    
-  <div class="flex justify-between items-start space-x-4">
-   
-      <% @categories.each do |category|%>
-      <div class="">
-        <h2 class="text-yellow-400 text-xl font-semibold mb-4 mt-8"> 
-          <%=category.name%>
-        </h2>
-        <% @restaurant.foods.each do |food|%>
-          <% if food.category_id == category.id%>
-              <%= render food %>
-          <%end%>
-        <%end%>
-        </div>
-      <%end%>
-    
-  </div>
-    
-</div>
-
 
 
 

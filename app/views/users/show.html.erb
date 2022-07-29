@@ -3,16 +3,15 @@
 
 <!-- Profil Tasarımı   -->
   <div class="mx-auto mt-16 mx-8 bg-white dark:bg-gray-800 flex flex-col justify-between items-center">
-    
-    <h2 class="text-center text-3xl font-bold mb-4"> 
+
+    <h2 class="text-center text-3xl font-bold mb-4">
       Your Profile
     </h2>
 
     <div class="flex justify-between items-center w-full lg:w-1/4">
-
-
-      <%= image_tag 'https://avatars.githubusercontent.com/u/84380549?v=4', class:"w-32 h-32 rounded-full shadow-lg"%>
-
+      <div class= "d-flex justify-content-center align-items-center">
+				<div class="illustration"><%= image_tag user_avatar(@user), class: "rounded-circle" %></div>
+			</div>
 
       <div class="flex flex-col justify-center items-center">
         <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold"> Name: </span><%= @user.name+" "+@user.surname %></h5>

@@ -33,7 +33,7 @@ gem "jbuilder"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'tailwindcss-rails'
 gem "image_processing", ">= 1.2"
-
+gem 'gravatar_image_tag', '~> 1.2'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -72,7 +72,7 @@ group :development do
   # gem "spring"
 end
 
-group :production do 
+group :production do
   gem 'pg', '~> 1.4', '>= 1.4.1'
 end
 
