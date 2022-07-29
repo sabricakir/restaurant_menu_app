@@ -3,6 +3,22 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="form-group text-center">
+        <div class="row">
+          <div class="col-12">
+            <%= image_tag user_avatar(resource), class: "rounded-circle" %>
+          </div>
+          <div class="col-12 mt-3">
+            <label class="btn btn-dark">
+                Dosya Seçin
+            <span style="display:none;">
+              <%= f.file_field :avatar%>
+            </span>
+          </label>
+          </div>
+        </div>
+      </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
