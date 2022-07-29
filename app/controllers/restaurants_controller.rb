@@ -2,12 +2,12 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[ show edit update destroy ]
 
   # GET /restaurants or /restaurants.json
-  
+
   # GET /restaurants/1 or /restaurants/1.json
   def show
     @user = current_user
     @categories = Category.all
-    
+
   end
 
   # GET /restaurants/new
@@ -23,8 +23,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
-
-
+    
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to restaurant_url(@restaurant), notice: "Restaurant was successfully created." }
