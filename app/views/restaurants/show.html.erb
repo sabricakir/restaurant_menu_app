@@ -19,11 +19,89 @@
         <% if  @restaurant.user == @user %>
           <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: "text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900" %>
           <%= link_to 'Add Foods', new_user_restaurant_food_path(current_user, @restaurant), class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800" %>
-          <%= link_to 'Back to Restaurants', user_path(current_user), class: "text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" %>
+          <%= link_to 'Back to Your Profile', user_path(current_user), class: "text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" %>
         <% end %>
       </div>
+  </div>
 
+  <div class="w-full grid grid-cols-2 md:grid-cols-3 space-x-3 mt-8 mx-2 md:mx-0" >
+    <div class="my-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a href="#AnaYemekler">
+            <img class="rounded-t-lg w-full h-auto h-52 md:h-80 object-cover" src="https://i.ytimg.com/vi/huiPt2HZYbg/maxresdefault.jpg" alt="">
+        </a>
+        <div class="p-5">
+
+          <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Ana Yemekler</h5>
+  
+        </div>
     </div>
+    
+    <div class="my-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a href="#AraSicaklar">
+            <img class="rounded-t-lg w-full h-auto max-h-52 md:max-h-96 md:h-80 object-cover" src="https://cdn.yemek.com/mncrop/940/625/uploads/2016/10/patates-yataginda-mantar.jpg" alt="">
+        </a>
+        <div class="p-5">
+
+          <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Ara Sıcaklar</h5>
+  
+        </div>
+    </div>
+
+    <div class="my-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a href="#Tatlilar">
+            <img class="rounded-t-lg w-full h-auto max-h-52 md:max-h-96 md:h-80 object-cover" src="https://www.unileverfoodsolutions.com.tr/konsept-uygulamalarimiz/yemek-trendleri/soguk-tatlilar/jcr:content/parsys/content/textimage_227428322/image.transform/jpeg-optimized/image.1568126484541.jpg" alt="">
+        </a>
+        <div class="p-5">
+
+          <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Tatlılar</h5>
+
+  
+        </div>
+    </div>
+
+    <div class="my-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a href="#SicakIcecekler">
+            <img class="rounded-t-lg w-full h-auto max-h-52 md:max-h-96 md:h-80 object-cover" src="https://trthaberstatic.cdn.wp.trt.com.tr/resimler/696000/697075.jpg" alt="">
+        </a>
+        <div class="p-5">
+
+          <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Sıcak İçecekler</h5>
+
+  
+        </div>
+    </div>
+
+    <div class="my-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a href="#SogukIcecekler">
+            <img class="rounded-t-lg w-full h-auto max-h-52 md:max-h-96 md:h-80 object-cover" src="https://altinbaslife.com/wp-content/uploads/2020/05/sogukicecek.jpg" alt="">
+        </a>
+        <div class="p-5">
+
+          <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Soğuk İçecekler</h5>
+  
+        </div>
+    </div>
+  </div>
+
+
+  <div class="mx-2 md:mx-0">
+   
+      <% @categories.each do |category|%>
+      <div class="w-full flex flex-col justify-center">
+        <h2 class="text-yellow-500 text-2xl font-semibold mb-4 mt-8" id=<%=category.name.gsub(" ","")%>> 
+          <%=category.name%>
+        </h2>
+        <% @restaurant.foods.each do |food|%>
+          <% if food.category_id == category.id%>
+              <%= render food %>
+          <%end%>
+        <%end%>
+        </div>
+      <%end%>
+    
+  </div>
+    
+</div>
 
 
 

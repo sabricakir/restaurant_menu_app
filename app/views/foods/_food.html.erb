@@ -1,17 +1,18 @@
-<div id="<%= dom_id food %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= food.name %>
-  </p>
+<div id="<%= dom_id food %>" class="border-2 rounded-full border-yellow-400 p-3 my-1">
+  <div class="grid grid-cols-3 space-x-4">
+    <p class="my-5">
+      <strong class=" font-medium mb-1">Name:</strong>
+      <%= food.name %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
-    <%= food.price %>
-  </p>
+    <p class="my-5">
+      <strong class=" font-medium mb-1">Price:</strong>
+      <%= food.price %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Contents:</strong>
-    <%= food.contents %>
-  </p>
-
+    <p class="my-5">
+      <strong class=" font-medium mb-1">Contents:</strong>
+      <%= food.contents %>
+    </p>
+  </div>
 </div>
