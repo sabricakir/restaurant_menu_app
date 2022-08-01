@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  
+
 
     # Only allow a list of trusted parameters through.
 
