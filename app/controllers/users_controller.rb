@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
 		@user = User.find(params[:id])
 		if current_user.id != @user.id
@@ -6,9 +7,6 @@ class UsersController < ApplicationController
 	   end
    end
 
-   private
 
-   def user_params
-     params.require(:user).permit(:email,:password,:name,:surname,:phone,:avatar)
-   end
+
 end

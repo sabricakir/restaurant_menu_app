@@ -3,21 +3,30 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-group text-center">
+
+    <div class="form-group text-center" data-controller="user-avatar">
+
         <div class="row">
-          <div class="col-12">
-            <%= image_tag user_avatar(resource), class: "rounded-circle" %>
-          </div>
-          <div class="col-12 mt-3">
-            <label class="btn btn-dark">
-                Dosya Seçin
-            <span style="display:none;">
-              <%= f.file_field :avatar%>
-            </span>
+            <div class="col-12">
+              <%= image_tag user_avatar(resource), height:128, width:128, class: "rounded-circle", data: { target: "user-avatar.output" } %>
+            </div>
+
+        <div class="col-12 mt-3">
+          <label class="field">
+      
+            <%= f.file_field :avatar, data: {target: "user-avatar.input", action: "user-avatar#replacePhoto" }%>
           </label>
-          </div>
         </div>
+
       </div>
+
+    </div>
+
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -48,7 +57,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update"  %>
   </div>
 <% end %>
 
