@@ -42,8 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # Only allow a list of trusted parameters through.
 
-  # protected
+  #protected
 
+  #def after_update_path_for(resource)
+  #  user_path(current_user)
+  #end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
@@ -63,4 +66,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
 end

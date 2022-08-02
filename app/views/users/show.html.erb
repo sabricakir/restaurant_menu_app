@@ -25,6 +25,7 @@
     </div>
 
     <%= link_to "Edit Profile", edit_user_registration_path, class:"w-full md:w-96 mx-auto flex justify-center items-center mt-8 h-12 px-6 text-white text-lg transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900"%>
+    <%= link_to "Çıkış Yap", destroy_user_session_path, class:"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700", data:{turbo_method: :delete}%>
 
   </div>
 
