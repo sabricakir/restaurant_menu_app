@@ -3,7 +3,7 @@
 
   <h2 class="text-center mt-4 font-bold text-2xl">Sign up</h2>
 
-  <%= form_for(resource, as: resource_name, html:{class:"container mx-auto mt-4", style:"width:50%;"}, url: registration_path(resource_name), data:{turbo:false}) do |f| %>
+  <%= form_for(resource, as: resource_name, html:{class:"container mx-auto mt-4 w-1/2"}, url: registration_path(resource_name), data:{turbo:false}) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="grid md:grid-cols-2 md:gap-6">
