@@ -13,7 +13,6 @@ export default class extends Controller {
         reader.onload = function () {
          output.src = reader.result
        }
-
        reader.readAsDataURL(input.files[0]);
      }
    }

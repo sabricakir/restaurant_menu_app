@@ -25,7 +25,7 @@
     </div>
 
     <%= link_to "Edit Profile", edit_user_registration_path, class:"w-full md:w-96 mx-auto flex justify-center items-center mt-8 h-12 px-6 text-white text-lg transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900"%>
-    <%= link_to "Çıkış Yap", destroy_user_session_path, class:"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700", data:{turbo_method: :delete}%>
+    <%= link_to "Sign out", destroy_user_session_path, class:"block mt-4 py-2 pr-4 pl-3 font-bold text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700", data:{turbo_method: :delete}%>
 
   </div>
 
@@ -33,10 +33,6 @@
 
   <!-- Restaurant kartları-->
   <div class="w-full mt-40 md:mx-0 mx-4">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
     <div class="flex justify-between items-center">
       <h1 class="font-bold text-4xl ">My Restaurants</h1>
       <%= link_to 'New restaurant', new_restaurant_path, class: "rounded-lg py-3 px-5 text-white block font-medium text-lg transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900" %>
@@ -46,5 +42,4 @@
       <%= render @user.restaurants%>
     </div>
   </div>
-
 </div>
