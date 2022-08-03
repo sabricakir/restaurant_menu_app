@@ -14,6 +14,6 @@ class Restaurant < ApplicationRecord
 
   def set_restaurant_info
     self.name = name.upcase
-    self.address = address.upcase
+    self.address = address.titleize
   end
 end
