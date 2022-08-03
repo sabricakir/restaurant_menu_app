@@ -14,6 +14,6 @@ class Food < ApplicationRecord
 
   def set_food_info
     self.name = name.capitalize
-    self.content = content.titleize
+    self.contents = contents.titleize
   end
 end
