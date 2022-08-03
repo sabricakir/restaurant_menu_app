@@ -22,18 +22,22 @@
   </div>
 
   <div class="my-5">
-   <div class="form-group" data-controller="user-avatar">
+   <div class="form-group" data-controller="restaurant-image">
 
        <div class="row">
             <div class="col-12">
-              <%= image_tag "pick_picture.svg", class:"w-full h-auto max-h-52 md:max-h-96 md:h-96 object-cover rounded-lg shadow-lg",data: { target: "user-avatar.output" }%>
+              <% if restaurant.restaurant_image.attached?%>
+                <%= image_tag get_restaurant_image(restaurant), class:"w-full h-auto max-h-52 md:max-h-96 md:h-96 object-cover rounded-lg shadow-lg",data: { target: "restaurant-image.output" }%>
+              <%else%>
+                  <%= image_tag get_restaurant_image(restaurant), class:"hidden-field w-full h-auto max-h-52 md:max-h-96 md:h-96 object-cover rounded-lg shadow-lg",data: { target: "restaurant-image.output" }%>
+              <%end%>
             </div>
 
 
         </div>
         <div class="col-12 mt-3"> 
           <label class="field">
-            <%= form.file_field :restaurant_image, data: {target: "user-avatar.input", action: "user-avatar#replacePhoto" }%>
+            <%= form.file_field :restaurant_image, data: {target: "restaurant-image.input", action: "restaurant-image#replacePhoto" }%>
           </label>
         </div>
        

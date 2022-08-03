@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:id])
     @food = Food.new
-   end
+  end
 
   # GET /foods/1/edit
   def edit; end
@@ -33,13 +33,13 @@ class FoodsController < ApplicationController
                                 locals: { food: Food.new,
                                           restaurant: @restaurant,
                                           current_user: }),
-            turbo_stream.append(@categories.find_by(id: @food.category_id).name,
-                                 partial: 'foods/food',
-                                 locals: { food: @food }),
-           turbo_stream.update(@categories.find_by(id: @food.category_id).name+"_title",
-                               @categories.find_by(id: @food.category_id).name),
-           turbo_stream.update(@categories.find_by(id: @food.category_id).name+"_slide",
-                               @categories.find_by(id: @food.category_id).name)
+            turbo_stream.append('div_' + @food.category_id.to_s,
+                                partial: 'foods/food',
+                                locals: { food: @food }),
+            turbo_stream.update('title_' + @food.category_id.to_s,
+                                @categories.find_by(id: @food.category_id).name),
+            turbo_stream.update('slide_' + @food.category_id.to_s,
+                                @categories.find_by(id: @food.category_id).name)
 
           ]
         end

@@ -6,8 +6,11 @@
 
 
       <div class="flex flex-col justify-center items-center ml-8 lg:ml-0 mt-8">
-        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold"> Restaurant Name: </span><%= @restaurant.name %></h5>
-        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold">  Restaurant Address: </span> <%= @restaurant.address %></h5>
+        <h5 class="mb-1 text-3xl text-gray-900 dark:text-white"> <span class="font-semibold"><%= @restaurant.name %></span></h5>
+        <h5 class="mb-1 text-xl text-gray-900 dark:text-white flex justify-between items-center"> 
+          <%= image_tag "location.svg", class:"w-6 h-6"%>
+          <span class="font-semibold">  <%= @restaurant.address %> </span> 
+        </h5>
       </div>
         <% if  @restaurant.user == @user %>
 
@@ -25,30 +28,30 @@
         <% end %>
   </div>
 
-  <div class="snap-x">
+  <div class="w-full ml-4 mt-16 mb-4 flex overflow-x-auto space-x-10 items-center">
     <% @categories.each do |category|%>
-        <div class="snap-center">
-          <h2 id="<%=category.name%>_slide">
-            <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
-              <%=category.name%>
-            <%end%>
-          </h2>
-        </div>
+      <a href="#title_<%=category.id%>" id="slide_<%=category.id%>" class="text-xl font-semibold  hover:text-yellow-500 hover:cursor-pointer">
+        <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
+          <%=category.name%>
+        <%end%>
+      </a>
     <%end%>
   </div>
+
+  
   <div class="mx-2 md:mx-0">
 
 
     <% @categories.each do |category|%>
       <div class="w-full flex flex-col justify-center">
-        <h2 id="<%=category.name%>_title" class="text-yellow-500 text-2xl font-semibold mb-4 mt-8" id=<%=category.name.gsub(" ","")%>>
+        <h2 id="title_<%=category.id%>" class="text-yellow-500 text-2xl font-semibold mb-4 mt-8">
           <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
             <%=category.name%>
           <%end%>
         </h2>
       </div>
 
-      <div id="<%=category.name%>">
+      <div id="div_<%=category.id%>">
         <% @restaurant.foods.each do |food|%>
           <% if food.category_id == category.id%>
             <%= render food %>
