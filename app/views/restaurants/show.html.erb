@@ -27,31 +27,34 @@
 
   <div class="snap-x">
     <% @categories.each do |category|%>
-      <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
         <div class="snap-center">
-          <h2>
-            <%=category.name%>
+          <h2 id="<%=category.name%>_slide">
+            <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
+              <%=category.name%>
+            <%end%>
           </h2>
         </div>
-      <%end%>
     <%end%>
   </div>
   <div class="mx-2 md:mx-0">
+
+
     <% @categories.each do |category|%>
-      <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
-        <div class="w-full flex flex-col justify-center">
-          <h2 class="text-yellow-500 text-2xl font-semibold mb-4 mt-8" id=<%=category.name.gsub(" ","")%>>
+      <div class="w-full flex flex-col justify-center">
+        <h2 id="<%=category.name%>_title" class="text-yellow-500 text-2xl font-semibold mb-4 mt-8" id=<%=category.name.gsub(" ","")%>>
+          <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
             <%=category.name%>
-          </h2>
-          <div id="<%=category.name%>">
-            <% @restaurant.foods.each  do |food|%>
-              <% if food.category_id == category.id%>
-                <%= render food %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <%end%>
+          <%end%>
+        </h2>
+      </div>
+
+      <div id="<%=category.name%>">
+        <% @restaurant.foods.each do |food|%>
+          <% if food.category_id == category.id%>
+            <%= render food %>
+          <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
 
