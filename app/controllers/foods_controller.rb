@@ -33,9 +33,10 @@ class FoodsController < ApplicationController
                                 locals: { food: Food.new,
                                           restaurant: @restaurant,
                                           current_user: }),
+            turbo_stream.update(@categories.find_by(id: @food.category_id).name),
             turbo_stream.append(@categories.find_by(id: @food.category_id).name,
-                                 partial: 'foods/food',
-                                 locals: { food: @food })
+                                partial: 'foods/food',
+                                locals: { food: @food })
           ]
         end
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Food was successfully created.' }
