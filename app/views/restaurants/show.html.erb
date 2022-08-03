@@ -43,15 +43,15 @@
           <h2 class="text-yellow-500 text-2xl font-semibold mb-4 mt-8" id=<%=category.name.gsub(" ","")%>>
             <%=category.name%>
           </h2>
-          <div id="<%=category.name%>">
-            <% @restaurant.foods.each  do |food|%>
-              <% if food.category_id == category.id%>
-                <%= render food %>
-              <% end %>
-            <% end %>
-          </div>
         </div>
       <%end%>
+      <div id="<%=category.name%>">
+        <% @restaurant.foods.each do |food|%>
+          <% if food.category_id == category.id%>
+            <%= render food %>
+          <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
 

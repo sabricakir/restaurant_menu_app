@@ -16,7 +16,6 @@ class FoodsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:id])
     @food = Food.new
-
    end
 
   # GET /foods/1/edit
