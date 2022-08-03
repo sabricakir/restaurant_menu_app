@@ -27,13 +27,13 @@
 
   <div class="snap-x">
     <% @categories.each do |category|%>
-      <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
         <div class="snap-center">
-          <h2>
-            <%=category.name%>
+          <h2 id="<%=category.name%>_slide">
+            <% if @restaurant.foods.find_by(category_id: category.id) != nil %>
+              <%=category.name%>
+            <%end%>
           </h2>
         </div>
-      <%end%>
     <%end%>
   </div>
   <div class="mx-2 md:mx-0">
