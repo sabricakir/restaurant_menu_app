@@ -34,6 +34,9 @@ class FoodsController < ApplicationController
                                           restaurant: @restaurant,
                                           current_user: }),
             turbo_stream.append(@categories.find_by(id: @food.category_id).name,
+                                partial: 'foods/food',
+                                locals: { food: @food })
+
                                  partial: 'foods/food',
                                  locals: { food: @food }),
            turbo_stream.update(@categories.find_by(id: @food.category_id).name+"_title",

@@ -6,7 +6,7 @@
 
 
       <div class="flex flex-col justify-center items-center ml-8 lg:ml-0 mt-8">
-        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold"> Restaurant Name: </span><%= @restaurant.name %></h5>
+        <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold"><%= @restaurant.name %></span></h5>
         <h5 class="mb-1 text-xl text-gray-900 dark:text-white"> <span class="font-semibold">  Restaurant Address: </span> <%= @restaurant.address %></h5>
       </div>
         <% if  @restaurant.user == @user %>
