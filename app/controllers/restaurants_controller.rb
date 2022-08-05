@@ -1,13 +1,17 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[ show edit update destroy ]
+  def qr_code_generator; end
 
+    def qr_code_download
+      send_data RQRCode::QRCode.new(params[:content].to_s).as_png(size: 300), type: 'image/png', disposition: 'inline'
+    end
   # GET /restaurants or /restaurants.json
 
   # GET /restaurants/1 or /restaurants/1.json
   def show
     @user = current_user
     @categories = Category.all
-
+    @restaurant_link = "https://restaurant-qr-menu.herokuapp.com/restaurants/" + @restaurant.id.to_s
   end
 
   # GET /restaurants/new
