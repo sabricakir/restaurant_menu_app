@@ -9,8 +9,13 @@ Rails.application.routes.draw do
     get '/restaurants/:id/foods/new', to: 'foods#new'
     resources :restaurants do
       resources :foods
-      end
     end
+  end
+  controller :restaurants do
+    get :qr_code_generator
+    get :qr_code_download
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
