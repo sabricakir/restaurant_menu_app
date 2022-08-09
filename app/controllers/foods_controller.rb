@@ -46,6 +46,15 @@ class FoodsController < ApplicationController
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Food was successfully created.' }
         format.json { render :show, status: :ok, location: @food }
       else
+        format.turbo_stream do
+          render turbo_stream: [
+            # new_message div'ine boş bir form ekler
+            turbo_stream.update('new_food',
+                                partial: 'foods/form',
+                                locals: { food: @food,
+                                          restaurant: @restaurant,
+                                          current_user: })]
+        end
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @food.errors, status: :unprocessable_entity }
       end
