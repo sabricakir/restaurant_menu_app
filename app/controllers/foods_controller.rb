@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.new
   end
 

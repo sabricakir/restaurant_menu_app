@@ -3,7 +3,7 @@
 
   <h2 class="text-center mt-4 font-bold text-2xl">Sign up</h2>
 
-  <%= form_for(resource, as: resource_name, html:{class:"container mx-auto mt-4 w-1/2"}, url: registration_path(resource_name), data:{turbo:false}) do |f| %>
+  <%= form_for(resource, as: resource_name, html:{class:"container mx-auto mt-4 w-1/2", data:{turbo:false}}, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="grid md:grid-cols-2 md:gap-6">
@@ -45,7 +45,7 @@
 
 
       <div class="actions">
-        <%= f.submit "Sign up", class:"text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"%>
+        <%= f.submit "Sign up", data:{turbo_action: "replace"}, class:"text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"%>
       </div>
 
       <%= render "devise/shared/links" %>

@@ -29,14 +29,23 @@
 
 
   <!-- Restaurant kartları-->
-  <div class="w-full mt-40 md:mx-0 mx-4">
-    <div class="flex justify-between items-center">
-      <h1 class="font-bold text-4xl ">My Restaurants</h1>
-      <%= link_to 'New restaurant', new_restaurant_path, class: "rounded-lg py-3 px-5 text-white block font-medium text-lg transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900" %>
-    </div>
-
-    <div id="restaurants" class="mt-16 mb-8 min-w-full grid grid-cols-1 md:grid-cols-4 space-x-3 ">
-      <%= render @user.restaurants%>
-    </div>
+  <div class="flex justify-between items-center mt-8">
+    <h1 class="font-bold text-4xl ">My Restaurants</h1>
+    <%= link_to 'New restaurant', new_user_restaurant_path(@user), class: "rounded-lg py-3 px-5 text-white block font-medium text-lg transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900" %>
   </div>
+
+  <%= turbo_frame_tag 'user_restaurants', src: user_restaurants_path(@user), loading: :lazy do%>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+      <%4.times do  %>
+        <div class="flex flex-col justify-between items-start max-w-sm my-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div class="bg-gray-300 rounded-t-lg w-full h-48 md:h-80">
+          </div>
+          <div class="py-4">
+            <div class="bg-gray-300 rounded-full w-48 h-4 mb-3 ml-2"></div>
+            <div class="bg-gray-300 rounded-full w-64 h-8 mb-3 ml-2"></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

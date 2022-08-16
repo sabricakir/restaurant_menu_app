@@ -8,6 +8,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants or /restaurants.json
 
   # GET /restaurants/1 or /restaurants/1.json
+  def index
+    sleep(0.5)
+    @user = current_user
+  end
   def show
     @user = current_user
     @categories = Category.all

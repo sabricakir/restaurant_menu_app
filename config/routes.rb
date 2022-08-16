@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
+=begin
   resources :foods
   resources :restaurants
+=end
   devise_for :users
   resources :users do
-    get '/:id', to: 'users#show'
-    get '/restaurants/:id', to: 'restaurants#show'
-    get '/restaurants/:id/edit', to: 'restaurants#edit'
-    get '/restaurants/:id/foods/new', to: 'foods#new'
     resources :restaurants do
       resources :foods
     end
   end
+
   controller :restaurants do
     get :qr_code_generator
     get :qr_code_download
