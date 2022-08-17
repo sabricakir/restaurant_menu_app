@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1 or /restaurants/1.json
   def index
-    sleep(0.5)
+    sleep(1)
     @user = current_user
   end
   def show
