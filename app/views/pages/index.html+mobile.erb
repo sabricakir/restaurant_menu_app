@@ -1,0 +1,18 @@
+<div class="bg-yellow-400 h-screen flex flex-col items-center justify-between">
+  <div class="flex flex-col justify-center items-center pt-32">
+    <img src = "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="restaurant"  class="rounded-full w-80 h-80 drop-shadow-2xl"/>
+    <p class="text-center font-semibold text-xl text-white mt-4 mx-2">Menüye Erişmek İçin Lütfen QR Kodu Okutunuz</p>
+  </div>
+
+
+  <%= image_tag 'arrow-bottom.svg', class:"animate-bounce w-8 h-8 mt-40"%>
+  <div class="static bg-white bottom-0 left-0 text-center w-full h-12">
+    <div class="flex justify-center items-center overflow-visible" data-controller="js-bridge">
+      <button data-action="click->js-bridge#openaCamera"
+        class="absolute bottom-[20px] bg-white rounded-full border-8 border-white h-16 w-16">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/QR_Code_example.png/2048px-QR_Code_example.png" alt="qr"  class="rounded-full"/>
+      </button>
+    </div>
+
+  </div>
+</div>
