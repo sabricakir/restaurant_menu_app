@@ -11,5 +11,3 @@ categories = Category.create([{ name: 'Soğuk içecekler' },
                               { name: 'Tatlılar' },
                               { name: 'Tuzlular' },
                               { name: 'Ekmek arası' }])
-User.create(name: 'sabri', surname: 'çakır', email: 'sabricakir86@gmail.com', password: 'şifre123',
-            phone: 1_234_567_890)
